@@ -16,8 +16,8 @@ mod test {
         engine.apply(trans);
         let account = engine.bank.get(&1);
         assert!(account.is_some());
-        assert!(account.unwrap().get_available() == Decimal::from(1));
-        assert!(account.unwrap().get_held() == Decimal::from(0));
+        assert!(account.unwrap().available == Decimal::from(1));
+        assert!(account.unwrap().held == Decimal::from(0));
         let trans_count = engine.transactions.iter().count();
         assert!(trans_count == 1);
     }
@@ -44,8 +44,8 @@ mod test {
         let account = engine.bank.get(&1);
         println!("{:?}", account);
         assert!(account.is_some());
-        assert_eq!(account.unwrap().get_available(), Decimal::from(0));
-        assert_eq!(account.unwrap().get_held(), Decimal::from(1));
+        assert_eq!(account.unwrap().available, Decimal::from(0));
+        assert_eq!(account.unwrap().held, Decimal::from(1));
     }
 
     #[test]

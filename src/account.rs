@@ -6,9 +6,9 @@ use std::fmt::Display;
 #[derive(Debug)]
 pub struct Account {
     pub client: u16,
-    available: Decimal,
-    held: Decimal,
-    locked: bool,
+    pub available: Decimal,
+    pub held: Decimal,
+    pub locked: bool,
 }
 impl Display for Account {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -67,12 +67,6 @@ impl Account {
             held: Decimal::new(0, 0),
             locked: false,
         }
-    }
-    pub fn get_available(&self) -> Decimal {
-        self.available
-    }
-    pub fn get_held(&self) -> Decimal {
-        self.held
     }
 }
 
